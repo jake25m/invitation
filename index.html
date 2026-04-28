@@ -2,83 +2,114 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre & Nombre | Nuestra Boda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nuestra Boda | Nombre & Nombre</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="hero">
+    <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="save-the-date">SAVE THE DATE</span>
             <h1>Nombre & Nombre</h1>
             <p class="hero-sub">25 . 10 . 2026</p>
+            <div class="hero-divider"></div>
             <a href="#confirmar" class="btn-primary">CONFIRMAR ASISTENCIA</a>
         </div>
-    </section>
+    </header>
 
     <section class="story">
         <div class="container">
+            <span class="section-subtitle">Bienvenidos</span>
             <h2>Nuestra Historia</h2>
             <div class="divider"></div>
             <p class="story-text">
-                Un camino que comenzó como una amistad y hoy se convierte en una promesa de vida. 
-                Queremos celebrar el amor, la risa y el futuro junto a las personas que más queremos.
+                Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quieres los hace inolvidables. 
+                Después de un viaje lleno de risas, apoyo y sueños, hemos decidido dar el siguiente gran paso. 
+                ¡Estamos felices de celebrar nuestro amor contigo!
             </p>
         </div>
     </section>
 
     <section class="event-details">
-        <div class="grid-details">
-            <div class="detail-item">
-                <div class="icon">💍</div>
-                <h3>CEREMONIA</h3>
-                <p>17:00 PM</p>
-                <p>Parroquia de Santa María</p>
-                <p>Bogotá, Colombia</p>
-            </div>
-            <div class="detail-item">
-                <div class="icon">🥂</div>
-                <h3>RECEPCIÓN</h3>
-                <p>19:30 PM</p>
-                <p>Hacienda El Recuerdo</p>
-                <p>Vía Suba-Cota</p>
+        <div class="container">
+            <h2>Cuándo & Dónde</h2>
+            <div class="grid-details">
+                <div class="detail-item">
+                    <div class="icon">💍</div>
+                    <h3>LA CEREMONIA</h3>
+                    <div class="detail-divider"></div>
+                    <p class="time">17:00 PM</p>
+                    <p>Parroquia de Santa María</p>
+                    <p>Bogotá, Colombia</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-text">VER MAPA</a>
+                </div>
+
+                <div class="detail-item">
+                    <div class="icon">🥂</div>
+                    <h3>LA RECEPCIÓN</h3>
+                    <div class="detail-divider"></div>
+                    <p class="time">19:30 PM</p>
+                    <p>Hacienda El Recuerdo</p>
+                    <p>Vía Suba-Cota</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-text">VER MAPA</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="rsvp-section" id="confirmar">
         <div class="rsvp-container">
+            <span class="section-subtitle">Confirmación</span>
             <h2>RSVP</h2>
-            <p>Por favor, confirma tu asistencia antes del 1 de Septiembre</p>
+            <p class="rsvp-intro">Sería un honor contar con tu presencia. Por favor, confírmanos antes del 1 de Septiembre.</p>
             
             <form id="weddingForm">
-                <div class="form-group">
-                    <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <select id="asistencia" required>
-                        <option value="" disabled selected>¿Asistirás?</option>
-                        <option value="si">Acepto con gusto</option>
-                        <option value="no">No podré asistir</option>
-                    </select>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="asistencia">¿Asistirás?</label>
+                        <select id="asistencia" name="asistencia" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí, asistiré</option>
+                            <option value="no">Lamentablemente no podré</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="invitados">Invitados Adicionales</label>
+                        <input type="number" id="invitados" name="invitados" min="0" max="5" value="0">
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <input type="number" id="invitados" placeholder="Número de invitados adicionales">
+                    <label for="mensaje">Mensaje o Restricciones Alimenticias</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Ej: Alergia a los mariscos, mensaje para los novios..."></textarea>
                 </div>
-                <div class="form-group">
-                    <textarea id="mensaje" placeholder="Mensaje para los novios o restricciones alimenticias"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">ENVIAR ASISTENCIA</button>
+
+                <button type="submit" class="btn-submit">ENVIAR CONFIRMACIÓN</button>
             </form>
+            <div id="form-status"></div>
         </div>
     </section>
 
     <footer>
-        <p>HECHO CON AMOR</p>
-        <p class="names">Nombre & Nombre</p>
+        <div class="footer-content">
+            <p class="footer-motto">NOS VEMOS EN EL ALTAR</p>
+            <p class="footer-names">Nombre & Nombre</p>
+            <p class="footer-date">25 . 10 . 2026</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
