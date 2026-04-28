@@ -1,22 +1,33 @@
+// 1. Integración con SheetDB (Recuerda cambiar la URL)
 document.getElementById('weddingForm').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    const nombre = document.getElementById('nombre').value;
-    const asistencia = document.getElementById('asistencia').value;
-    const invitados = document.getElementById('invitados').value;
-    const mensaje = document.getElementById('mensaje').value;
-
-    // Opción: Enviar por WhatsApp
-    const telefono = "573208944537"; // Tu número aquí
-    const texto = `¡Hola! Confirmo mi asistencia:
-Nombre: ${nombre}
-Asistirá: ${asistencia}
-Acompañantes: ${invitados}
-Mensaje: ${mensaje}`;
-
-    const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(texto)}`;
     
-    window.open(url, '_blank');
-    
-    document.getElementById('status').innerText = "¡Gracias por confirmar!";
+    const data = {
+        "Nombre completo": document.getElementById('nombre').value,
+        "Asistencia (Sí/No)": document.getElementById('asistencia').value,
+        "Número de acompañantes": document.getElementById('invitados').value,
+        "Restricciones alimenticias / Mensaje especial": document.getElementById('mensaje').value
+    };
+
+    fetch('TU_URL_DE_SHEETDB_AQUI', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: [data] })
+    })
+    .then(res => {
+        alert("¡Confirmación enviada con éxito!");
+        document.getElementById('weddingForm').reset();
+    })
+    .catch(error => alert("Error al enviar. Inténtalo de nuevo."));
 });
+
+// 2. Efecto de aparición al bajar (Scroll Reveal)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
