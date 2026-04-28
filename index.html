@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda | Invitación</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Nombre & Nombre</h1>
+            <p class="fecha">25 de Octubre, 2026</p>
+            <div class="divider"></div>
+            <p class="lema">¡Nos casamos y queremos que seas parte de este día!</p>
+        </div>
+    </header>
+
+    <section class="detalles">
+        <h2>Detalles del Evento</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ceremonia</h3>
+                <p>17:00 Horas</p>
+                <p>Parroquia de Santa María</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+            <div class="card">
+                <h3>Recepción</h3>
+                <p>19:30 Horas</p>
+                <p>Hacienda El Recuerdo</p>
+                <p>Vía Suba-Cota</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp" id="confirmar">
+        <h2>Confirmar Asistencia</h2>
+        <form id="weddingForm">
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+            
+            <select id="asistencia" name="asistencia" required>
+                <option value="" disabled selected>¿Asistirás?</option>
+                <option value="si">Sí, con mucho gusto</option>
+                <option value="no">Lamentablemente no puedo</option>
+            </select>
+
+            <input type="number" id="invitados" name="invitados" placeholder="Número de acompañantes" min="0" max="5">
+            
+            <textarea id="mensaje" name="mensaje" placeholder="¿Alguna restricción alimenticia o mensaje especial?"></textarea>
+
+            <button type="submit" class="btn-submit">Enviar Confirmación</button>
+        </form>
+        <div id="status"></div>
+    </section>
+
+    <footer>
+        <p>¡Te esperamos con mucha ilusión!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
