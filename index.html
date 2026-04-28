@@ -3,62 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nuestra Boda | Invitación</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Nuestra Boda | Jasarmavet & Nombre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="hero">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Jasarmavet & Nombre</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">La boda</a></li>
+                <li><a href="#registro">Registro</a></li>
+                <li><a href="#mapa">Cómo llegar</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#confirmar" class="btn-rsvp-nav">RSVP</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Natalia & Jasar</h1>
-            <p class="fecha">15 de Noviembre, 2026</p>
-            <div class="divider"></div>
-            <p class="lema">¡Nos casamos y queremos que seas parte de este día!</p>
+            <span class="save-the-date">SAVE THE DATE</span>
+            <h1>Jasarmavet & Nombre</h1>
+            <p class="hero-sub">25 . 10 . 2026</p>
         </div>
     </header>
 
-    <section class="detalles">
-        <h2>Detalles del Evento</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Ceremonia</h3>
-                <p>16:00 Horas</p>
-                <p>Parroquia de Santa María</p>
-                <p>Bogotá, Colombia</p>
+    <section id="mapa" class="location-section animate">
+        <div class="location-container">
+            <div class="location-info">
+                <h2 class="location-title">Cómo<br>llegar</h2>
+                <div class="location-details">
+                    <p class="venue-name">Hacienda El Recuerdo</p>
+                    <p>Av. Fray Antonio Alcalde 10</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+                <a href="https://maps.google.com" target="_blank" class="btn-map-circle">
+                    <span>Mapa</span>
+                </a>
             </div>
-            <div class="card">
-                <h3>Recepción</h3>
-                <p>19:30 Horas</p>
-                <p>Hacienda El Recuerdo</p>
-                <p>Vía Suba-Cota</p>
+            <div class="location-image">
+                <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&q=80&w=1000" alt="Lugar del evento">
             </div>
         </div>
     </section>
 
-    <section class="rsvp" id="confirmar">
-        <h2>Confirmar Asistencia</h2>
-        <form id="weddingForm">
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
-            
-            <select id="asistencia" name="asistencia" required>
-                <option value="" disabled selected>¿Asistirás?</option>
-                <option value="si">Sí, con mucho gusto</option>
-                <option value="no">Lamentablemente no puedo</option>
-            </select>
+    <section id="registro" class="registry animate">
+        <div class="container">
+            <h2>Registro</h2>
+            <div class="divider"></div>
+            <p class="registry-text">Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, aquí tienes nuestras opciones favoritas.</p>
+            <div class="registry-logos">
+                <div class="store">Lluvia de Sobres</div>
+                <div class="store">Falabella</div>
+                <div class="store">Amazon</div>
+            </div>
+        </div>
+    </section>
 
-            <input type="number" id="invitados" name="invitados" placeholder="Número de acompañantes" min="0" max="5">
+    <section id="confirmar" class="rsvp-section animate">
+        <div class="rsvp-container">
+            <span class="section-subtitle">Confirmación</span>
+            <h2>¿Vienes a celebrar?</h2>
+            <p>Por favor, confírmanos antes del 1 de Septiembre.</p>
             
-            <textarea id="mensaje" name="mensaje" placeholder="¿Alguna restricción alimenticia o mensaje especial?"></textarea>
-
-            <button type="submit" class="btn-submit">Enviar Confirmación</button>
-        </form>
-        <div id="status"></div>
+            <form id="weddingForm">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>¿Asistirás?</label>
+                        <select id="asistencia" required>
+                            <option value="" disabled selected>Selecciona</option>
+                            <option value="si">Sí, asistiré</option>
+                            <option value="no">No podré asistir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Acompañantes</label>
+                        <input type="number" id="invitados" min="0" value="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje / Restricciones</label>
+                    <textarea id="mensaje" placeholder="Ej: Alergias o mensaje para nosotros"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">ENVIAR</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>¡Te esperamos con mucha ilusión!</p>
+        <p class="footer-names">J & N</p>
+        <p>2026 . BOGOTÁ</p>
     </footer>
 
     <script src="script.js"></script>
