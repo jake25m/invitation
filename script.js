@@ -7,7 +7,7 @@ document.getElementById('weddingForm').addEventListener('submit', function(e) {
     const mensaje = document.getElementById('mensaje').value;
 
     // Opción: Enviar por WhatsApp
-    const telefono = "573000000000"; // Tu número aquí
+    const telefono = "573208944537"; // Tu número aquí
     const texto = `¡Hola! Confirmo mi asistencia:
 Nombre: ${nombre}
 Asistirá: ${asistencia}
